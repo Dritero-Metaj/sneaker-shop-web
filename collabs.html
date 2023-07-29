@@ -1,0 +1,268 @@
+<?php
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>|Treatments|</title>
+    <link rel="stylesheet" href="style.css"/>
+    <style>
+        .slide-container .prev,
+        .slide-container .next {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        width: auto;
+        margin-top: -22px;
+        padding: 16px;
+        color: white;
+        font-weight: bold;
+        font-size: 20px;
+        transition: all 0.6s ease;
+        border-radius: 0 3px 3px 0;
+        user-select: none;
+        }
+
+
+        .slide-container .prev:hover,
+        .slide-container .next:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+        color: white;
+        }
+
+        .slide-container .prev {
+        left: 2px;
+        }
+
+        .slide-container .next {
+        right: 2px;
+        }
+
+        .dots-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        }
+
+        .dots-container .dot {
+        cursor: pointer;
+        margin: 5px;
+        width: 20px;
+        height: 20px;
+        color: #333;
+        border-radius: 50%;
+        background-color: #dfd6ce;
+        }
+
+        .dots-container .dot.active {
+        border: 2px solid green;
+        }
+
+        * {
+        padding: 0;
+        border: 0;
+        box-sizing: border-box;
+        }
+
+        body {
+        height: 100%;
+        background: url(img/bck.jpeg);
+
+        /*   background-image: linear-gradient(to top, #accbee 0%, #e7f0fd 100%); */
+        }
+
+        body h1 {
+        text-align: center;
+        }
+
+        .slide-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-width: 1000px;
+        margin: auto;
+        position: relative;
+        z-index:3;
+        height:50vh;
+        width:100vw;
+        }
+
+        .slide-container .slide {
+        display: none;
+        width: 100%;
+        }
+
+        .slide-container .slide.fade {
+        animation: fade 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+        }
+
+        .slide-container .slide img {
+        width: 100%;
+        }
+        .slide.fade img{
+            max-height:50vh;
+            border-radius:20px;
+        }
+        .sliderr{
+            margin-top:100px;
+            padding-top:100px;
+        }
+
+            
+            
+            
+            
+            
+    </style>
+
+</head>
+<body>
+
+<header>
+        <a href="#" class="logo">𝕸𝖆𝖓𝖌𝖔<span>𝙨𝙣𝙚𝙖𝙠𝙚𝙧𝙨</span></a>
+        <ul class="nav">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="aboutUs.html">About Us</a></li>
+            <li><a href="contactUs.php">Contact Us</a></li>
+            <li><a href="offers.html">Offers</a></li>
+            <li><a href="user.php">User</a></li>
+            <li><a href="collabs.html">Collabs</a></li>
+        </ul>
+    </header>
+
+ <?php  include 'header.php' ?> 
+
+ <div class="sliderr">
+        <div class="slide-container">
+            <div class="slide fade">
+                <img src="img/design1.png" alt=''>
+            </div>
+            <div class="slide fade">
+                <img src="img/design2.png" alt=''>
+            </div>
+            <div class="slide fade">
+                <img src="img/design3.png" alt=''>
+            </div>
+            <div class="slide fade">
+              <img src="img/design4.png" alt=''>
+          </div>
+
+            <a href="#" class="prev" title="Previous">&#10094</a>
+            <a href="#" class="next" title="Next">&#10095</a>
+        </div>
+        <div class="dots-container">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+    </div>
+
+
+
+
+    <section class="treatment" id="treatment">
+        <div class="title5">
+            <h2 class="title">Collaborations</h2>
+            <p>Here are some treatments we offer!</p>
+            <p>Our shoe company is proud to announce that we have had the privilege of collaborating with some of the biggest names in the industry.
+            Collaborations which have sold out within hours of their release. 
+            These collaborations have not only helped to elevate our brand,
+            but also showcase our commitment to working with the most talented and influential figures in the world of fashion, art and sport. 
+            We are honored to have had the opportunity to work with these artists
+            and are excited for what the future holds for our collaborations.</p>
+            
+        </div>
+        <div class="content2">
+           
+        <div class="box2">
+            <div class="img">
+             <img src="img/mbappe.jpg">
+           </div>
+           <div class="imgTxt">
+               <h3>For a healthy face</h3>
+            </div>
+        </div>
+            <div class="box2">
+                <div class="img">
+                 <img src="img/rita.jpg">
+               </div>
+               <div class="imgTxt">
+                   <h3>Only quality products</h3>
+                </div>
+            </div>
+                <div class="box2">
+                    <div class="img">
+                     <img src="img/kodak.jpg">
+                   </div>
+                   <div class="imgTxt">
+                       <h3>For a glowing face</h3>
+                    </div>
+                </div>
+                   
+        <div class="box2">
+          <div class="img">
+           <img src="img/nbaplayer.jpg">
+         </div>
+         <div class="imgTxt">
+             <h3>For a healthy face</h3>
+          </div>
+      </div>
+            </div>
+    </section>
+   
+     <?php  include 'footer.php' ?> 
+
+</body>
+<script>
+
+let currentSlide = 0;
+const slides = document.querySelectorAll(".slide")
+const dots = document.querySelectorAll('.dot')
+
+const init = (n) => {
+  slides.forEach((slide, index) => {
+    slide.style.display = "none"
+    dots.forEach((dot, index) => {
+      dot.classList.remove("active")
+    })
+  })
+  slides[n].style.display = "block"
+  dots[n].classList.add("active")
+}
+document.addEventListener("DOMContentLoaded", init(currentSlide))
+const next = () => {
+  currentSlide >= slides.length - 1 ? currentSlide = 0 : currentSlide++
+  init(currentSlide)
+}
+
+const prev = () => {
+  currentSlide <= 0 ? currentSlide = slides.length - 1 : currentSlide--
+  init(currentSlide)
+}
+
+document.querySelector(".next").addEventListener('click', next)
+
+document.querySelector(".prev").addEventListener('click', prev)
+
+
+setInterval(() => {
+  next()
+}, 5000);
+
+dots.forEach((dot, i) => {
+  dot.addEventListener("click", () => {
+    console.log(currentSlide)
+    init(i)
+    currentSlide = i
+  })
+})
+
+</script>
+
+<script type="text/javascript" src="js.js">
+   
+    
+</script>
+</html>
